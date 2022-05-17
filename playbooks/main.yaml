@@ -1,0 +1,15 @@
+---
+- hosts: nodes
+  gather_facts: no
+  tasks:
+    - name: Start health checks [pre]
+      include_tasks: health_checks.yaml
+    
+    - name: Configure BGP
+      include_tasks: bgp.yaml
+    
+    - name: Validate BGP operational state
+      include_tasks: bgp_oper.yaml
+    
+    - name: Start health checks [post]
+      include_tasks: health_checks.yaml

@@ -1,0 +1,14 @@
+---
+- name: Get CPU utilization
+  ansible.utils.cli_parse:
+    command: "show processes cpu"
+    parser:
+      name: ansible.netcommon.pyats
+    set_fact: cpu_utilization
+
+- name: Verify that CPU utilization is within threshold
+  assert:
+    that:
+      - cpu_utilization.five_min_cpu < 80
+      - cpu_utilization.one_min_cpu < 30
+      - cpu_utilization.five_sec_cpu_total < 30

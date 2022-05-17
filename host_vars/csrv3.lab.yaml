@@ -1,0 +1,41 @@
+---
+peers:
+  - csrv1.lab
+  - csrv2.lab
+  - csrv4.lab
+
+bgp_global:
+    as_number: '65538'
+    bgp:
+      log_neighbor_changes: true
+      router_id:
+        address: 172.31.40.115
+    neighbors:
+    - log_neighbor_changes:
+        set: true
+      neighbor_address: 172.31.39.79
+      remote_as: '65536'
+    - log_neighbor_changes:
+        set: true
+      neighbor_address: 172.31.38.157
+      remote_as: '65537'
+    - log_neighbor_changes:
+        set: true
+      neighbor_address: 172.31.33.78
+      remote_as: '65539'
+
+bgp_address_family:
+    address_family:
+    - afi: ipv4
+      neighbor:
+      - activate: true
+        address: 172.31.38.157
+      - activate: true
+        address: 172.31.39.79
+      - activate: true
+        address: 172.31.33.78
+      network:
+      - address: 203.0.113.0
+      - address: 203.0.114.0
+      - address: 203.0.115.0
+    as_number: '65538'

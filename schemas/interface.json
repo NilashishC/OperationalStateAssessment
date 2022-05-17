@@ -1,0 +1,45 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://json-schema.org/draft-07/schema#",
+    "patternProperties": {
+        "^.*": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "const": true
+                },
+                "oper_status": {
+                    "type": "string",
+                    "pattern": "^up"
+                },
+                "mtu": {
+                    "type": "integer",
+                    "minimum": 1200,
+                    "maximum": 1500
+                },
+                "split_horizon": {
+                    "type": "boolean",
+                    "const": true
+                },
+                "ipv4": {
+                    "type": "object",
+                    "properties": {
+                        "^.*": {
+                            "type": "object",
+                            "properties": {
+                                "ip": {
+                                    "type": "string",
+                                    "format": "ipv4"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "required": [
+                "ipv4"
+            ]
+        }
+    }
+}

@@ -1,0 +1,6 @@
+---
+- hosts: csrv1.lab
+  gather_facts: no
+  tasks:
+    - cisco.ios.ios_bgp_address_family:
+        state: gathered

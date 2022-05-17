@@ -1,0 +1,101 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+        "neighbor": {
+            "type": "object",
+            "properties": {
+                "172.31.39.79": {
+                    "properties": {
+                        "address_family": {
+                            "type": "object",
+                            "properties": {
+                                "": {
+                                    "type": "object",
+                                    "properties": {
+                                        "as": {
+                                            "type": "integer",
+                                            "const": 65536
+                                        },
+                                        "prefixes": {
+                                            "type": "object",
+                                            "properties": {
+                                                "total_entries": {
+                                                    "type": "integer",
+                                                    "minimum": 9
+                                                }
+                                            }
+                                        },
+                                        "state_pfxrcd": {
+                                            "const": "9"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "172.31.40.115": {
+                    "properties": {
+                        "address_family": {
+                            "type": "object",
+                            "properties": {
+                                "": {
+                                    "type": "object",
+                                    "properties": {
+                                        "as": {
+                                            "type": "integer",
+                                            "const": 65538
+                                        },
+                                        "prefixes": {
+                                            "type": "object",
+                                            "properties": {
+                                                "total_entries": {
+                                                    "type": "integer",
+                                                    "minimum": 9
+                                                }
+                                            }
+                                        },
+                                        "state_pfxrcd": {
+                                            "const": "9"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "172.31.38.157": {
+                    "properties": {
+                        "address_family": {
+                            "type": "object",
+                            "properties": {
+                                "": {
+                                    "type": "object",
+                                    "properties": {
+                                        "as": {
+                                            "type": "integer",
+                                            "const": 65537
+                                        },
+                                        "prefixes": {
+                                            "type": "object",
+                                            "properties": {
+                                                "total_entries": {
+                                                    "type": "integer",
+                                                    "minimum": 9
+                                                }
+                                            }
+                                        },
+                                        "state_pfxrcd": {
+                                            "const": "9"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

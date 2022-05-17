@@ -1,0 +1,11 @@
+---
+- name: "Verify reachability to {{ peer }}"
+  cisco.ios.ios_ping:
+    dest: "{{ peer }}"
+    count: 24
+  register: ping_result
+
+- name: Validate reachability results
+  ansible.utils.validate:
+    data: "{{ ping_result|to_json }}"
+    criteria: "{{ lookup('file', '../schemas/ping.json') }}"

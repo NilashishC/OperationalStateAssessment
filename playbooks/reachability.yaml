@@ -2,12 +2,6 @@
 - hosts: all
   gather_facts: no
   tasks:
-    - name: Start CPU utilization checks
-      include_tasks: cpu.yaml
-
-    - name: Start interface health check
-      include_tasks: interfaces.yaml
-
     - name: Start reachability checks
       include_tasks: ping.yaml
       loop: "{{ peers }}"

@@ -1,5 +1,5 @@
 ---
-- hosts: nodes
+- hosts: all
   gather_facts: no
   tasks:
     - name: Start CPU utilization checks

@@ -1,5 +1,5 @@
 ---
-- hosts: nodes
+- hosts: all
   gather_facts: no
   tasks:
     - name: Get and parse BGP operational state

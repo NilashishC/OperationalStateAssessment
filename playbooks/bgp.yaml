@@ -1,15 +1,18 @@
 ---
-- name: "CSRv - Configure BGP"
-  cisco.ios.ios_bgp_global:
-    config: "{{ bgp_global }}"
-    state: replaced
+- hosts: nodes
+  gather_facts: no
+  tasks:
+    - name: "CSRv - Configure BGP"
+      cisco.ios.ios_bgp_global:
+        config: "{{ bgp_global }}"
+        state: replaced
 
-- name: "CSRv - Configure BGP Address Family"
-  cisco.ios.ios_bgp_address_family:
-    config: "{{ bgp_address_family }}"
-    state: overridden
+    - name: "CSRv - Configure BGP Address Family"
+      cisco.ios.ios_bgp_address_family:
+        config: "{{ bgp_address_family }}"
+        state: overridden
 
-- name: Pause for 20 seconds to allow neighbor establishment
-  pause:
-    seconds: 20
+    - name: Pause for 20 seconds to allow neighbor establishment
+      pause:
+        seconds: 20
 

@@ -1,12 +1,15 @@
 ---
-- name: Get and parse BGP operational state
-  ansible.utils.cli_parse:
-    command: show bgp summary
-    parser: 
-      name: ansible.netcommon.pyats
-  register: result
+- hosts: nodes
+  gather_facts: no
+  tasks:
+    - name: Get and parse BGP operational state
+      ansible.utils.cli_parse:
+        command: show bgp summary
+        parser: 
+          name: ansible.netcommon.pyats
+      register: result
 
-- name: Validate BGP operational state
-  ansible.utils.validate:
-    data: "{{ result['parsed']['vrf']['default'] }}"
-    criteria: "{{ lookup('file', '../schemas/{{ inventory_hostname }}_bgp.json') }}"
+    - name: Validate BGP operational state
+      ansible.utils.validate:
+        data: "{{ result['parsed']['vrf']['default'] }}"
+        criteria: "{{ lookup('file', '../schemas/{{ inventory_hostname }}_bgp.json') }}"

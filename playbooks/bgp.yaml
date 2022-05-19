@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  gather_facts: no
+  gather_facts: false
   tasks:
     - name: "CSRv - Configure BGP"
       cisco.ios.ios_bgp_global:
@@ -15,4 +15,3 @@
     - name: Pause for 20 seconds to allow neighbor establishment
       pause:
         seconds: 20
-

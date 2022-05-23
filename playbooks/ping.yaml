@@ -1,11 +1,27 @@
 ---
-- name: "Verify reachability to {{ peer }}"
-  cisco.ios.ios_ping:
-    dest: "{{ peer }}"
-    count: 24
-  register: ping_result
+- block:
+    - name: Set the retry count
+      ansible.builtin.set_fact:
+        retry_count: "{{ 0 if retry_count is undefined else retry_count|int + 1 }}"
+      delegate_to: localhost
 
-- name: Validate reachability results
-  ansible.utils.validate:
-    data: "{{ ping_result|to_json }}"
-    criteria: "{{ lookup('file', '../schemas/ping.json') }}"
+    - name: "Verify reachability to {{ peer }}"
+      cisco.ios.ios_ping:
+        dest: "{{ peer }}"
+        count: 5
+      register: ping_result
+
+    - name: Validate reachability results
+      ansible.utils.validate:
+        data: "{{ ping_result|to_json }}"
+        criteria: "{{ lookup('file', '../schemas/ping.json') }}"
+      register: validation
+      ignore_errors: True
+  rescue:
+    - name: Fail if retry limit is hit
+      ansible.builtin.fail:
+        msg: "Reachability test failed!"
+      when: retry_count|int == 5
+
+    - name: Re-run reachability check
+      ansible.builtin.include_tasks: ping.yaml

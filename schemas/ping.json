@@ -4,11 +4,11 @@
     "properties": {
         "packets_rx": {
             "type": "integer",
-            "minimum": 12
+            "minimum": 2
         },
         "packets_tx": {
             "type": "integer",
-            "minimum": 12
+            "minimum": 2
         },
         "rtt": {
             "type": "object",

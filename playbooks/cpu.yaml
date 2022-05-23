@@ -13,5 +13,3 @@
       assert:
         that:
           - cpu_utilization.five_min_cpu < 80
-          - cpu_utilization.one_min_cpu < 30
-          - cpu_utilization.five_sec_cpu_total < 30

@@ -10,6 +10,6 @@
         set_fact: cpu_utilization
 
     - name: Verify that CPU utilization is within threshold
-      assert:
+      ansible.builtin.assert:
         that:
           - cpu_utilization.five_min_cpu < 80

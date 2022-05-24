@@ -16,7 +16,7 @@
         data: "{{ ping_result|to_json }}"
         criteria: "{{ lookup('file', '../schemas/ping.json') }}"
       register: validation
-      ignore_errors: True
+      ignore_errors: true
   rescue:
     - name: Fail if retry limit is hit
       ansible.builtin.fail:

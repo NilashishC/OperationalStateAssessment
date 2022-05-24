@@ -4,10 +4,13 @@
   tasks:
     - name: Get and parse BGP operational state
       ansible.utils.cli_parse:
-        command: show bgp summary
+        command: show bgp neighbors
         parser: 
           name: ansible.netcommon.pyats
       register: result
+      retries: 5
+      delay: 5
+      until: ("BGP state = Established") in result.stdout
 
     - name: Validate BGP operational state
       ansible.utils.validate:

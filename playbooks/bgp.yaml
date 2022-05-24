@@ -11,7 +11,3 @@
       cisco.ios.ios_bgp_address_family:
         config: "{{ bgp_address_family }}"
         state: overridden
-
-    - name: Pause for 20 seconds to allow neighbor establishment
-      pause:
-        seconds: 20

@@ -1,6 +1,5 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "http://json-schema.org/draft-07/schema#",
     "properties": {
         "neighbor": {
             "type": "object",
@@ -8,90 +7,67 @@
                 "172.31.33.78": {
                     "properties": {
                         "address_family": {
+                            "$id": "/schemas/af",
                             "type": "object",
                             "properties": {
-                                "": {
+                                "ipv4 unicast": {
                                     "type": "object",
                                     "properties": {
-                                        "as": {
-                                            "type": "integer",
-                                            "const": 65539
-                                        },
-                                        "prefixes": {
+                                        "prefix_activity_counters": {
                                             "type": "object",
                                             "properties": {
-                                                "total_entries": {
-                                                    "type": "integer",
-                                                    "minimum": 9
+                                                "received": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "prefixes_current": {
+                                                            "type": "integer",
+                                                            "minimum": 9
+                                                        }
+                                                    }
                                                 }
                                             }
-                                        },
-                                        "state_pfxrcd": {
-                                            "const": "9"
+
                                         }
                                     }
                                 }
                             }
+                        },
+                        "remote_as": {
+                            "type": "integer",
+                            "const": 65539
+                        },
+                        "session_state": {
+                            "type": "string",
+                            "$id": "/schemas/nbr",
+                            "pattern": "(E|s)tablished"
                         }
                     }
                 },
                 "172.31.38.157": {
                     "properties": {
                         "address_family": {
-                            "type": "object",
-                            "properties": {
-                                "": {
-                                    "type": "object",
-                                    "properties": {
-                                        "as": {
-                                            "type": "integer",
-                                            "const": 65537
-                                        },
-                                        "prefixes": {
-                                            "type": "object",
-                                            "properties": {
-                                                "total_entries": {
-                                                    "type": "integer",
-                                                    "minimum": 9
-                                                }
-                                            }
-                                        },
-                                        "state_pfxrcd": {
-                                            "const": "9"
-                                        }
-                                    }
-                                }
-                            }
+                            "$ref": "/schemas/af"
+                        },
+                        "remote_as": {
+                            "type": "integer",
+                            "const": 65537
+                        },
+                        "session_state": {
+                            "$ref": "/schemas/nbr"
                         }
                     }
                 },
                 "172.31.40.115": {
                     "properties": {
                         "address_family": {
-                            "type": "object",
-                            "properties": {
-                                "": {
-                                    "type": "object",
-                                    "properties": {
-                                        "as": {
-                                            "type": "integer",
-                                            "const": 65538
-                                        },
-                                        "prefixes": {
-                                            "type": "object",
-                                            "properties": {
-                                                "total_entries": {
-                                                    "type": "integer",
-                                                    "minimum": 9
-                                                }
-                                            }
-                                        },
-                                        "state_pfxrcd": {
-                                            "const": "9"
-                                        }
-                                    }
-                                }
-                            }
+                            "$ref": "/schemas/af"
+                        },
+                        "remote_as": {
+                            "type": "integer",
+                            "const": 65538
+                        },
+                        "session_state": {
+                            "$ref": "/schemas/nbr"
                         }
                     }
                 }

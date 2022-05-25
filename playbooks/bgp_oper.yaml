@@ -2,8 +2,6 @@
 - hosts: all
   gather_facts: false
   tasks:
-    - ansible.builtin.command: pip install jsonschema==4.0.0
-
     - name: Get and parse BGP operational state
       ansible.utils.cli_parse:
         command: show bgp neighbors

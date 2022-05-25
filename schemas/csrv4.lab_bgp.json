@@ -46,7 +46,29 @@
                 "172.31.38.157": {
                     "properties": {
                         "address_family": {
-                            "$ref": "/schemas/af"
+                            "type": "object",
+                            "properties": {
+                                "ipv4 unicast": {
+                                    "type": "object",
+                                    "properties": {
+                                        "prefix_activity_counters": {
+                                            "type": "object",
+                                            "properties": {
+                                                "received": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "prefixes_current": {
+                                                            "type": "integer",
+                                                            "minimum": 9
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                        }
+                                    }
+                                }
+                            }
                         },
                         "remote_as": {
                             "type": "integer",
@@ -60,7 +82,29 @@
                 "172.31.40.115": {
                     "properties": {
                         "address_family": {
-                            "$ref": "/schemas/af"
+                            "type": "object",
+                            "properties": {
+                                "ipv4 unicast": {
+                                    "type": "object",
+                                    "properties": {
+                                        "prefix_activity_counters": {
+                                            "type": "object",
+                                            "properties": {
+                                                "received": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "prefixes_current": {
+                                                            "type": "integer",
+                                                            "minimum": 9
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                        }
+                                    }
+                                }
+                            }
                         },
                         "remote_as": {
                             "type": "integer",

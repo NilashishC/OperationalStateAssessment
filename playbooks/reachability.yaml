@@ -3,7 +3,7 @@
   gather_facts: false
   tasks:
     - name: Start reachability checks
-      include_tasks: ping.yaml
+      ansible.builtin.include_tasks: ping.yaml
       loop: "{{ peers }}"
       loop_control:
         loop_var: peer

@@ -1,10 +1,9 @@
 ---
-- block:
-    - name: "Verify reachability to {{ peer }}"
-      cisco.ios.ios_ping:
-        dest: "{{ peer }}"
-        count: 5
-      register: ping_result
-      retries: 5
-      until: ping_result.packet_loss == '0%'
-      delay: 2
+- name: "Verify reachability to {{ peer }}"
+  cisco.ios.ios_ping:
+    dest: "{{ peer }}"
+    count: 5
+  register: ping_result
+  retries: 5
+  until: ping_result.packet_loss == '0%'
+  delay: 2

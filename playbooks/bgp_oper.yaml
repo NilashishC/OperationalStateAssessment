@@ -5,7 +5,7 @@
     - name: Get and parse BGP operational state
       ansible.utils.cli_parse:
         command: show bgp neighbors
-        parser: 
+        parser:
           name: ansible.netcommon.pyats
       register: result
       retries: 5

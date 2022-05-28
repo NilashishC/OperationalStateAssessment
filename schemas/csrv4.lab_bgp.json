@@ -39,7 +39,7 @@
                         "session_state": {
                             "type": "string",
                             "$id": "/schemas/nbr",
-                            "pattern": "(E|s)tablished"
+                            "pattern": "(E|e)stablished"
                         }
                     }
                 },

@@ -9,10 +9,14 @@
           name: ansible.netcommon.pyats
       register: result
       retries: 5
-      delay: 10
+      delay: 5
       until: ("BGP state = Established") in result.stdout
 
     - name: Validate BGP operational state
       ansible.utils.validate:
         data: "{{ result['parsed']['vrf']['default'] }}"
         criteria: "{{ lookup('file', '../schemas/{{ inventory_hostname }}_bgp.json') }}"
+      register: result
+      retries: 5
+      delay: 5
+      until: result.failed == false

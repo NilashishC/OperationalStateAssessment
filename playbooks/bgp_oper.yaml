@@ -18,5 +18,5 @@
         criteria: "{{ lookup('file', '../schemas/{{ inventory_hostname }}_bgp.json') }}"
       register: result
       retries: 5
-      delay: 5
+      delay: 10
       until: result.failed == false

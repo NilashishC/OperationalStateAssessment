@@ -9,7 +9,7 @@
           name: ansible.netcommon.pyats
       register: result
       retries: 5
-      delay: 5
+      delay: 10
       until: ("BGP state = Established") in result.stdout
 
     - name: Validate BGP operational state

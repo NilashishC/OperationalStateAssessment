@@ -1,5 +1,5 @@
 ---
-- hosts: csrv1.lab
+- hosts: all
   gather_facts: false
   tasks:
     - name: Get and parse BGP operational state

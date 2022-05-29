@@ -11,3 +11,6 @@
       cisco.ios.ios_bgp_address_family:
         config: "{{ bgp_address_family }}"
         state: overridden
+    
+    - pause:
+        seconds: 20

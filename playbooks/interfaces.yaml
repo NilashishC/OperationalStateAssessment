@@ -1,15 +1,7 @@
 ---
-- hosts: all
+- hosts: csrv1.lab
   gather_facts: false
   tasks:
-    - name: Get and parse interface operational state
-      ansible.utils.cli_parse:
-        command: show ip interface
-        parser: 
-          name: ansible.netcommon.pyats
-      register: result
-
-    - name: Validate interface operational state
-      ansible.utils.validate:
-        data: "{{ result['parsed'] }}"
-        criteria: "{{ lookup('file', '../schemas/interface.json') }}"
+    - debug:
+        msg: "Ok"
+      delegate_to: localhost

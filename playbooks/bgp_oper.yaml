@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: csrv1.lab
   gather_facts: false
   tasks:
     - name: Get and parse BGP operational state
@@ -8,9 +8,6 @@
         parser:
           name: ansible.netcommon.pyats
       register: result
-      retries: 5
-      delay: 5
-      until: ("BGP state = Established") in result.stdout
 
     - name: Validate BGP operational state
       ansible.utils.validate:

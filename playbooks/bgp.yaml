@@ -1,16 +1,12 @@
 ---
-- hosts: all
+- hosts: csrv3.lab
   gather_facts: false
   tasks:
-    - name: "CSRv - Configure BGP"
-      cisco.ios.ios_bgp_global:
-        config: "{{ bgp_global }}"
-        state: replaced
-
-    - name: "CSRv - Configure BGP Address Family"
-      cisco.ios.ios_bgp_address_family:
-        config: "{{ bgp_address_family }}"
-        state: overridden
+    - cisco.ios.ios_config:
+        lines:
+          - "router bgp 65538"
+          - "  address-family ipv4 unicast"
+          - "    network 203.0.113.0"
     
     - pause:
-        seconds: 20
+        seconds: 10

@@ -1,9 +1,7 @@
 ---
-- hosts: all
+- hosts: csrv1.lab
   gather_facts: false
   tasks:
-    - name: Start reachability checks
-      ansible.builtin.include_tasks: ping.yaml
-      loop: "{{ peers }}"
-      loop_control:
-        loop_var: peer
+    - debug:
+        msg: "Ok"
+      delegate_to: localhost
